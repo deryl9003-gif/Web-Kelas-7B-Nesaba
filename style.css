@@ -58,7 +58,8 @@ body {
 /* Hero Section */
 /* CSS HERO BARU - BIAR FOTO GAK KE POTONG */
 .hero-container {
-    padding-top: 70px; /* Supaya gak ketutup navbar */
+    padding-top: 110px; /* Supaya gak ketutup navbar */
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column; /* Foto di atas, Teks di bawah (khusus di HP) */
     align-items: center;
@@ -577,3 +578,4 @@ footer {
         grid-template-columns: 1fr; /* Di HP jadi satu kolom ke bawah */
     }
 }
+
