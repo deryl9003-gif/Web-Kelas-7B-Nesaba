@@ -83,11 +83,6 @@ body {
     width: 100%;
 }
 
-.hero-text-box h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
 
 .h2 {
     border-bottom: 2px #007bff;
@@ -191,20 +186,8 @@ h2 {
     color: #0056b3;
 }
 
-.hero-text-box {
-    margin-top: 46px;
-    margin-bottom: 40px;
-    padding: 7%;
-}
-
-.tentang {
-  padding-bottom: 0.1px;
-}
 
 /* Grid & Card */
-#jadwal {
-    padding: 40px ;
-}
 
 .grid-container {
     display: grid;
@@ -368,78 +351,102 @@ th { background: #007bff; color: white; }
 
 /* Container Pengumuman */
 .announcement-container {
-    width: 95%;          /* Mengambil hampir seluruh lebar layar */
-    max-width: 800px;    /* Tapi jangan terlalu lebar di Laptop */
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar pengumuman */
+    text-align: left; /* Teks pengumuman rata kiri agar rapi */
+    padding: auto;
+}
+
+/* Kartu Pengumuman */
+
+/* =========================================
+   BAGIAN PENGUMUMAN (SUDAH DIPERBAIKI)
+   ========================================= */
+
+/* Container utama supaya kartu ada di tengah dan lebar */
+.announcement-container {
+    width: 100%;
+    max-width: 800px; /* Batas lebar di laptop agar enak dibaca */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    text-align: left;
+    gap: 20px; /* Jarak antar kartu pengumuman */
+    padding: 0 15px; /* Jarak aman biar gak mentok layar HP */
+    box-sizing: border-box;
 }
 
-/* Kartu Pengumuman - Hilangkan batasan lebar */
+/* Kartu Pengumuman */
 .announcement-card {
-    background: white;
-    border-left: 5px solid #007bff;
+    background: #ffffff;
+    border-left: 6px solid #007bff; /* Garis biru tebal di samping */
     padding: 20px;
     border-radius: 12px;
-    display: block;      /* Gunakan block agar konten mengisi ruang secara alami */
-    width: 100%;         /* Biar gak penyet ke samping */
-    box-sizing: border-box; /* Biar padding gak bikin kartu bocor keluar layar */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-.announcement-card:hover {
-    transform: scale(1.02);
+    text-align: left; /* Teks rata kiri */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    width: 100%; /* Memaksa kartu selebar container */
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
 
-/* Jika ingin warna lain untuk pengumuman penting/info */
-.announcement-card.info {
-    border-left-color: #28a745; /* Warna hijau untuk info */
+/* Efek saat kartu disentuh */
+.announcement-card:hover {
+    transform: translateY(-3px);
 }
 
 /* Tanggal Pengumuman */
 .announcement-date {
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 700;
     color: #007bff;
-    margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
 }
 
-/* Body Pengumuman */
+/* Judul Pengumuman */
 .announcement-body h3 {
-    font-size: 1.1rem;
-    margin: 10px 0;
+    font-size: 1.25rem;
     color: #333;
-    line-height: 1.4;
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
+/* Isi Teks Pengumuman */
 .announcement-body p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #555;
-    line-height: 1.6;    /* Kasih jarak antar baris biar gak rapat banget */
-}
-@media (max-width: 480px) {
-    .section h2 {
-        font-size: 1.5rem; /* Perkecil judul di HP agar tidak penyet */
-        margin-bottom: 20px;
-        padding: 0 10px;
-    }
-    
-    #pengumuman.section {
-        padding: 40px 10px; /* Kurangi padding samping section */
-    }
+    line-height: 1.6; /* Jarak antar baris biar gak rapat/penyet */
+    margin: 0;
 }
 
-/* Penyesuaian di HP */
-@media (max-width: 768px) {
-    .announcement-container {
-        padding: 0 5%;
+/* Variasi Warna Hijau untuk Info Tambahan */
+.announcement-card.info {
+    border-left-color: #28a745;
+}
+.announcement-card.info .announcement-date {
+    color: #28a745;
+}
+
+/* KHUSUS UNTUK TAMPILAN HP (RESPONSIVE) */
+@media (max-width: 480px) {
+    #pengumuman.section {
+        padding: 40px 10px; /* Kurangi padding section agar kartu bisa lebar */
     }
-    
+
+    .announcement-card {
+        padding: 15px; /* Padding dalam sedikit lebih kecil di HP */
+    }
+
     .announcement-body h3 {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Ukuran judul lebih pas untuk layar kecil */
+    }
+
+    .announcement-body p {
+        font-size: 0.85rem; /* Ukuran teks sedikit dikecilkan agar muat banyak */
     }
 }
 
@@ -447,7 +454,6 @@ th { background: #007bff; color: white; }
 footer {
     background: #333;
     color: white;
-    padding: 20px;
     text-align: center;
 }
 
@@ -477,13 +483,13 @@ footer {
 }
 
 .contact-countainer {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
-.contact-menu {
-    border: 1px #0056b3;
-    margin: 20px;
-}
 
 /* Styling Hub Gaming */
 .gaming-header {
@@ -570,5 +576,4 @@ footer {
     .gaming-container {
         grid-template-columns: 1fr; /* Di HP jadi satu kolom ke bawah */
     }
-
 }
