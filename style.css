@@ -368,26 +368,26 @@ th { background: #007bff; color: white; }
 
 /* Container Pengumuman */
 .announcement-container {
-    max-width: 800px;
+    width: 95%;          /* Mengambil hampir seluruh lebar layar */
+    max-width: 800px;    /* Tapi jangan terlalu lebar di Laptop */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Jarak antar pengumuman */
-    text-align: left; /* Teks pengumuman rata kiri agar rapi */
+    gap: 15px;
+    text-align: left;
 }
 
-/* Kartu Pengumuman */
+/* Kartu Pengumuman - Hilangkan batasan lebar */
 .announcement-card {
     background: white;
-    border-left: 5px solid #007bff; /* Garis aksen biru di samping */
+    border-left: 5px solid #007bff;
     padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    display: block;      /* Gunakan block agar konten mengisi ruang secara alami */
+    width: 100%;         /* Biar gak penyet ke samping */
+    box-sizing: border-box; /* Biar padding gak bikin kartu bocor keluar layar */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
-
 .announcement-card:hover {
     transform: scale(1.02);
 }
@@ -407,18 +407,29 @@ th { background: #007bff; color: white; }
     letter-spacing: 1px;
 }
 
-/* Isi Pengumuman */
+/* Body Pengumuman */
 .announcement-body h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin: 10px 0;
     color: #333;
+    line-height: 1.4;
 }
 
 .announcement-body p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;    /* Kasih jarak antar baris biar gak rapat banget */
+}
+@media (max-width: 480px) {
+    .section h2 {
+        font-size: 1.5rem; /* Perkecil judul di HP agar tidak penyet */
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+    
+    #pengumuman.section {
+        padding: 40px 10px; /* Kurangi padding samping section */
+    }
 }
 
 /* Penyesuaian di HP */
@@ -559,4 +570,5 @@ footer {
     .gaming-container {
         grid-template-columns: 1fr; /* Di HP jadi satu kolom ke bawah */
     }
+
 }
